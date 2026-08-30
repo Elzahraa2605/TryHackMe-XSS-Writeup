@@ -201,9 +201,6 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
   <img src="Screenshot 2026-08-29 183717.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot 2026-08-29 190000.png" width="600">
-</p>
-<p align="center">
   <img src="Screenshot 2026-08-29 184437.png" width="600">
 </p>
 <p align="center">
