@@ -24,10 +24,10 @@
 # Task 1-2: Introduction & JavaScript Basics
 
 <p align="center">
-  <img src="2026-08-29 190657.png" width="600">
+  <img src="Screenshot 2026-08-29 190657.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190706.png" width="600">
+  <img src="Screenshot 2026-08-29 190706.png" width="600">
 </p>
 
 * **Prerequisites**: معرفة بسيطة بـ HTTP وإزاي المواقع بتشتغل، وغرفة `Intro to Cross-site Scripting` كأساس.
@@ -75,7 +75,7 @@
   <img src="Screenshot 2026-08-29 182633.png" width="600">
 </p>
 
-* **Practical Testing**: تجربة `alert(1)`, `alert("XSS")`, `console.log()`, و`btoa()/atob()` مباشرة على bWAPP لتأكيد سلوك الـ Console.
+* **Practical Testing**: تجربة `alert(1)`, `alert("XSS")`, `console.log()`, و`btoa()/atob()` مباشرة على  Console.
 
 ---
 
