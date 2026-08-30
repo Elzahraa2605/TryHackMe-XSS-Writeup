@@ -8,6 +8,7 @@
 
 - **Room Name**: XSS
 - **Platform**: TryHackMe
+- **Difficulty**: Easy
 - **Topics Covered**: XSS Root Causes, Reflected XSS, Stored XSS, DOM-based XSS, Context-Aware Payload Crafting, Filter Evasion, Real-World CVE Exploitation (CVE-2023-38501, CVE-2021-38757).
 
 ---
