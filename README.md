@@ -1,7 +1,7 @@
 <div dir="rtl" style="text-align: right; width: 100%; word-wrap: break-word; overflow-wrap: break-word; line-height: 2; letter-spacing: 0.2px;">
 
 <p align="center">
-  <img src="XSS-screens/1788082301141_image.png" width="500">
+  <img src="Screenshot 2026-08-30 123133.png" width="500">
 </p>
 
 # Room Information
