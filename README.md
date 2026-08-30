@@ -34,13 +34,13 @@
 * **Core Concept**: XSS بتستغل ثقة المستخدم في موقع موثوق عشان تنفذ script خبيث جوه الـ browser بتاعه، وبالتالي بتتخطى الـ Same-Origin Policy (SOP).
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190720.png" width="600">
+  <img src="Screenshot 2026-08-29 190720.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190734.png" width="600">
+  <img src="Screenshot 2026-08-29 190734.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190747.png" width="600">
+  <img src="Screenshot 2026-08-29 190747.png" width="600">
 </p>
 
 * **JavaScript Console**: تم استخدام الـ Console (Ctrl+Shift+K على Firefox / Ctrl+Shift+J على Chrome) لتجربة الدوال الأساسية:
@@ -49,10 +49,10 @@
   - `btoa()` / `atob()` للتحويل من وإلى base64.
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190755.png" width="600">
+  <img src="Screenshot 2026-08-29 190755.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190804.png" width="600">
+  <img src="Screenshot 2026-08-29 190804.png" width="600">
 </p>
 
 * **XSS Types Recap**:
@@ -63,16 +63,16 @@
   | DOM-based XSS | بتحصل بالكامل client-side بدون رجوع للسيرفر |
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 181928.png" width="600">
+  <img src="Screenshot 2026-08-29 181928.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 182200.png" width="600">
+  <img src="Screenshot 2026-08-29 182200.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 182532.png" width="600">
+  <img src="Screenshot 2026-08-29 182532.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 182633.png" width="600">
+  <img src="Screenshot 2026-08-29 182633.png" width="600">
 </p>
 
 * **Practical Testing**: تجربة `alert(1)`, `alert("XSS")`, `console.log()`, و`btoa()/atob()` مباشرة على bWAPP لتأكيد سلوك الـ Console.
@@ -82,10 +82,10 @@
 # Task 3: Causes and Implications
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190820.png" width="600">
+  <img src="Screenshot 2026-08-29 190820.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190832.png" width="600">
+  <img src="Screenshot 2026-08-29 190832.png" width="600">
 </p>
 
 ## Root Causes
@@ -97,7 +97,7 @@
 * **Third-party Libraries**: مكتبة خارجية واحدة معرضة ممكن تعرّض التطبيق كله.
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190843.png" width="600">
+  <img src="Screenshot 2026-08-29 190843.png" width="600">
 </p>
 
 ## Implications
@@ -118,10 +118,10 @@
 # Task 4: Reflected XSS — Code Analysis (Multi-language)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190900.png" width="600">
+  <img src="Screenshot 2026-08-29 190900.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190917.png" width="600">
+  <img src="Screenshot 2026-08-29 190917.png" width="600">
 </p>
 
 * **Vulnerability Pattern**: قيمة query string بتترجع (reflected) في الصفحة زي ما هي من غير sanitization، زي `<script>alert(document.cookie)</script>` اللي المفروض يتحول لـ `&lt;script&gt;...`.
@@ -129,10 +129,10 @@
 ## PHP
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190917.png" width="600">
+  <img src="Screenshot 2026-08-29 190917.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190928.png" width="600">
+  <img src="Screenshot 2026-08-29 190928.png" width="600">
 </p>
 
 * **Root Cause**: `$_GET['q']` بتتعرض مباشرة في الـ response.
@@ -141,10 +141,10 @@
 ## JavaScript (Node.js / Express)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190928.png" width="600">
+  <img src="Screenshot 2026-08-29 190928.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190942.png" width="600">
+  <img src="Screenshot 2026-08-29 190942.png" width="600">
 </p>
 
 * **Root Cause**: `req.query.q` بتضاف للـ response من غير escaping.
@@ -153,10 +153,10 @@
 ## Python (Flask)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 190952.png" width="600">
+  <img src="Screenshot 2026-08-29 190952.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191010.png" width="600">
+  <img src="Screenshot 2026-08-29 191010.png" width="600">
 </p>
 
 * **Root Cause**: `request.args.get("q")` بتتحط في f-string من غير حماية.
@@ -165,13 +165,13 @@
 ## C# (ASP.NET)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191010.png" width="600">
+  <img src="Screenshot 2026-08-29 191010.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191035.png" width="600">
+  <img src="Screenshot 2026-08-29 191035.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191043.png" width="600">
+  <img src="Screenshot 2026-08-29 191043.png" width="600">
 </p>
 
 * **Root Cause**: `Request.QueryString["q"]` بتتكتب في الـ `Response` مباشرة.
@@ -182,10 +182,10 @@
 # Phase: Practical Exploitation — copyparty (CVE-2023-38501)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191130.png" width="600">
+  <img src="Screenshot 2026-08-29 191130.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191104.png" width="600">
+  <img src="Screenshot 2026-08-29 191104.png" width="600">
 </p>
 
 ## Execution Parameters
@@ -198,22 +198,22 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 ## Evidence & Outputs
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 183717.png" width="600">
+  <img src="Screenshot 2026-08-29 183717.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 184232.png" width="600">
+  <img src="Screenshot 2026-08-29 184232.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 184437.png" width="600">
+  <img src="Screenshot 2026-08-29 184437.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 184537.png" width="600">
+  <img src="Screenshot 2026-08-29 184537.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 184731.png" width="600">
+  <img src="Screenshot 2026-08-29 184731.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 184747.png" width="600">
+  <img src="Screenshot 2026-08-29 184747.png" width="600">
 </p>
 
 ## Technical Analysis
@@ -231,10 +231,10 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 # Task 6: Stored XSS — Code Analysis (Multi-language)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191143.png" width="600">
+  <img src="Screenshot 2026-08-29 191143.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191153.png" width="600">
+  <img src="Screenshot 2026-08-29 191153.png" width="600">
 </p>
 
 * **Vulnerability Pattern**: الـ input بيتخزن في الداتابيز (comments, reviews, forum posts) وبيتعرض لاحقاً لمستخدمين تانيين من غير sanitization.
@@ -249,10 +249,10 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 ## PHP
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191153.png" width="600">
+  <img src="Screenshot 2026-08-29 191153.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191201.png" width="600">
+  <img src="Screenshot 2026-08-29 191201.png" width="600">
 </p>
 
 * **Root Cause**: الكومنت بيتخزن في جدول `comments` ويترجع للعرض من غير sanitization.
@@ -261,10 +261,10 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 ## JavaScript (Node.js)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191201.png" width="600">
+  <img src="Screenshot 2026-08-29 191201.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191208.png" width="600">
+  <img src="Screenshot 2026-08-29 191208.png" width="600">
 </p>
 
 * **Root Cause**: array الـ `comments` بيتحط جوه الـ HTML مباشرة.
@@ -273,13 +273,13 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 ## Python (Flask + SQLAlchemy)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191216.png" width="600">
+  <img src="Screenshot 2026-08-29 191216.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191235.png" width="600">
+  <img src="Screenshot 2026-08-29 191235.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191246.png" width="600">
+  <img src="Screenshot 2026-08-29 191246.png" width="600">
 </p>
 
 * **Root Cause**: `request.form['comment']` بيتخزن ويتعرض من غير أي معالجة.
@@ -288,20 +288,20 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 ## C# (ASP.NET)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191246.png" width="600">
+  <img src="Screenshot 2026-08-29 191246.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191258.png" width="600">
+  <img src="Screenshot 2026-08-29 191258.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191345.png" width="600">
+  <img src="Screenshot 2026-08-29 191345.png" width="600">
 </p>
 
 * **Root Cause**: `SaveComment` و`DisplayComments` بيستخدموا string concatenation مباشرة (Stored XSS + SQL Injection).
 * **Fix**: `HttpUtility.HtmlEncode()` للعرض + `Parameters.AddWithValue()` للاستعلامات (Parametrized Queries).
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191352.png" width="600">
+  <img src="Screenshot 2026-08-29 191352.png" width="600">
 </p>
 
 ---
@@ -309,7 +309,7 @@ Payload (URL-encoded): ?k304=y%0D%0A%0D%0A%3Cimg+src%3Dcopyparty+onerror%3Dalert
 # Phase: Practical Exploitation — Hospital Management System (CVE-2021-38757)
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191403.png" width="600">
+  <img src="Screenshot 2026-08-29 191403.png" width="600">
 </p>
 
 ## Execution Parameters
@@ -323,22 +323,22 @@ Receptionist Credentials: admin / admin123
 ## Evidence & Outputs
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 185202.png" width="600">
+  <img src="Screenshot 2026-08-29 185202.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190000.png" width="600">
+  <img src="Screenshot 2026-08-29 190000.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190023.png" width="600">
+  <img src="Screenshot 2026-08-29 190023.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190103.png" width="600">
+  <img src="Screenshot 2026-08-29 190103.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 190117.png" width="600">
+  <img src="Screenshot 2026-08-29 190117.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191411.png" width="600">
+  <img src="Screenshot 2026-08-29 191411.png" width="600">
 </p>
 
 ## Technical Analysis
@@ -356,13 +356,13 @@ Receptionist Credentials: admin / admin123
 # Task 8: DOM-based XSS
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191421.png" width="600">
+  <img src="Screenshot 2026-08-29 191421.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191430.png" width="600">
+  <img src="Screenshot 2026-08-29 191430.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191438.png" width="600">
+  <img src="Screenshot 2026-08-29 191438.png" width="600">
 </p>
 
 * **Core Concept**: الـ DOM (Document Object Model) هو representation شجري لمستند الـ HTML، وبيتلاعب بيه عن طريق JavaScript (`document.createElement()`, `element.append()`). DOM-based XSS بتحصل بالكامل client-side من غير أي رحلة للسيرفر، وده اللي بيخليها أقل انتشاراً حالياً مقارنة بـ Reflected وStored.
@@ -370,32 +370,32 @@ Receptionist Credentials: admin / admin123
 ## Vulnerable "Static" Site
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191438.png" width="600">
+  <img src="Screenshot 2026-08-29 191438.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191445.png" width="600">
+  <img src="Screenshot 2026-08-29 191445.png" width="600">
 </p>
 
 * **Root Cause**: قيمة `?name=` من الرابط بتتعرض مباشرة عن طريق `document.write()` من غير أي حماية.
 * **Exploitation**: إدخال `?name=Web Tester<script>alert("XSS")</script>` أدى لتنفيذ الـ script فعلياً، وظهور عنصر جديد جوه شجرة الـ DOM (الـ `<body>` بقى عنده 4 children بدل 3).
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191452.png" width="600">
+  <img src="Screenshot 2026-08-29 191452.png" width="600">
 </p>
 
 ## Fixed "Static" Site
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191452.png" width="600">
+  <img src="Screenshot 2026-08-29 191452.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191512.png" width="600">
+  <img src="Screenshot 2026-08-29 191512.png" width="600">
 </p>
 
 * **Fix**: استبدال `document.write()` بـ `encodeURIComponent()` مع `textContent`. النتيجة إن أي محاولة حقن بتتعرض كـ نص مشفر (encoded) مش كـ كود ينفذ فعلياً، وشجرة الـ DOM مبتتأثرش.
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191519.png" width="600">
+  <img src="Screenshot 2026-08-29 191519.png" width="600">
 </p>
 
 * **Key Takeaways**:
@@ -408,10 +408,10 @@ Receptionist Credentials: admin / admin123
 # Task 9: Context and Evasion
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191527.png" width="600">
+  <img src="Screenshot 2026-08-29 191527.png" width="600">
 </p>
 <p align="center">
-  <img src="Screenshot_2026-08-29 191532.png" width="600">
+  <img src="Screenshot 2026-08-29 191532.png" width="600">
 </p>
 
 ## Context
@@ -436,7 +436,7 @@ Receptionist Credentials: admin / admin123
 # Task 10: Conclusion
 
 <p align="center">
-  <img src="Screenshot_2026-08-29 191543.png" width="600">
+  <img src="Screenshot 2026-08-29 191543.png" width="600">
 </p>
 
 * الغرفة غطت الأسباب الجذرية لـ XSS، الحلول بأربع لغات برمجة مختلفة لكل نوع (Reflected / Stored)، شرح DOM-based XSS النظري والعملي، وتطبيقين عمليين على ثغرات موثقة رسمياً (CVE-2023-38501 في copyparty، وCVE-2021-38757 في Hospital Management System).
